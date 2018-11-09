@@ -17,7 +17,22 @@ var treeMethods = {
   },
 
   contains: function(target) {
-  }
+    var found = false;
+    var traverseTree = function(node) {
+      if (node.value === target) {
+        found = true;
+      } else {
+        if (node.children.length === 0) {
+          return;
+        }
+        for (var i = 0; i < node.children.length; i++) {
+          traverseTree(node.children[i]);
+        }
+      }
+    };
+    traverseTree(this);
+    return found;
+  } 
 };
 
 
