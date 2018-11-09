@@ -42,3 +42,5 @@ var treeMethods = {
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+// addChild: O(1) because you already have a reference to the parent node
+// contains: O(n) because in worst case you have to traverse the entire tree
