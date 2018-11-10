@@ -49,10 +49,26 @@ treePrototype.contains = function (value) {
 };
 
 treePrototype.depthFirstLog = function (cb) {
-  
+  var traverseTree = function (tree) {
+    if (tree === null) {
+      return;
+    }
+    cb(tree.value);
+    traverseTree(tree.left);
+    traverseTree(tree.right);
+  }
+
+  traverseTree(this);
 };
 
 
 /*
  * Complexity: What is the time complexity of the above functions?
  */
+
+ /*
+
+insert, contains, and depthFirstLog: 
+O(n) because we always travel through the entire tree
+
+*/
