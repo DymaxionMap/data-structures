@@ -5,6 +5,25 @@ describe('tree', function() {
     tree = Tree();
   });
 
+  // ADVANCED CONTENT 
+  it('should have a parent property', function() {
+    tree.addChild(5);
+    expect(tree.hasOwnProperty('parent')).to.equal(true); 
+  });
+  
+  it('should have a removeFromParent method', function() {
+    expect(tree.removeFromParent).to.be.a('function');
+  });
+  
+  it('should disconnect parent from child', function() {
+    tree.addChild(5);
+    tree.addChild(6);
+    tree.removeFromParent(6);
+    expect(tree.contains(6)).to.equal(false);
+    
+  });
+  
+  // MINIMUM REQ
   it('should have methods named "addChild" and "contains", and a property named "value"', function() {
     expect(tree.addChild).to.be.a('function');
     expect(tree.contains).to.be.a('function');
